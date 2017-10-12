@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ZegeMoney</title>
+    <title>Zege Money</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,12 +9,17 @@
   </head>
 
   <body>
+    <%= render 'layouts/nav'%>
+    <div class="center">
     <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
+      <div class="green"><%= flash[:notice] %></div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="alert"><%= flash[:alert] %></div>
+      <div class="red"><%= flash[:alert] %></div>
     <% end %>
+  </div>
+    <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>
