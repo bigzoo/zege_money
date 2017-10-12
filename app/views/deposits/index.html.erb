@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="center">
+    <h3>Deposit Money</h3>
+  </div>
+    <%= form_for @deposit, url: {action: "create"}, html: {class: "col s12"} do |f| %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.number_field :amount, class:'validate', required:'required'%>
+          <%= f.label :amount%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :phone_number, class:'validate', required:'required', value: @phone_number%>
+          <%= f.label :phone_number%>
+        </div>
+      </div>
+      </div>
+      <%= f.submit "Create", class:'btn blue lighten-2' %>
+    <% end %>
+  </div>
