@@ -1,0 +1,23 @@
+<div class="navbar-fixed">
+   <nav id="nav_f" class="default_color" role="navigation">
+       <div class="container">
+           <div class="nav-wrapper">
+           <%= link_to 'Zege Money', root_path, id:'logo-container', class:'brand-logo'%>
+               <ul class="right hide-on-med-and-down">
+                   <%if user_signed_in? %>
+                   <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete%></li>
+                   <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                   <%else%>
+                   <li><%= link_to 'Join', new_user_registration_path%></li>
+                   <li><%= link_to 'Log In', new_user_session_path%><li>
+                   <% end %>
+               </ul>
+               <ul id="nav-mobile" class="side-nav">
+                 <li><%= link_to 'Sign Up', new_user_registration_path%></li>
+                 <li><%= link_to 'Sign In', new_user_session_path%><li>
+               </ul>
+           <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+           </div>
+       </div>
+   </nav>
+</div>
