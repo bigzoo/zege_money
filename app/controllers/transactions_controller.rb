@@ -12,7 +12,10 @@ class TransactionsController < ApplicationController
         @receiver = User.find_by_email(@transaction.receiver_identifier)
       end
       if @receiver
-        if current_user.balance.to_i<@transaction.amount.to_i
+        if @receiver==current_user
+          flash[:notice]='You can\'t really send money to yourself. Or can you?'
+          redirect_to transactions_path
+        elsif current_user.balance.to_i<@transaction.amount.to_i
           flash[:alert]='You dont have enough money in your account to make the transaction.'
           redirect_to transactions_path
         else
@@ -23,6 +26,7 @@ class TransactionsController < ApplicationController
           rv_bal = @receiver.balance.to_i
           rv_bal = rv_bal + @transaction.amount.to_i
           @receiver.update(balance:rv_bal)
+          UserMailer.transaction_confirmation(current_user,@transaction).deliver
           flash[:notice]='Transaction was completed successfully.'
           redirect_to dashboard_path
         end
