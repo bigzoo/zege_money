@@ -20,7 +20,7 @@
     <% if user_signed_in? %>
     <% if !current_user.first_name || !current_user.last_name || !current_user.phone_number%>
       <div class="red">Please update your account with your details <%= link_to 'here', edit_user_registration_path %></div>
-    <%end%>
+    <% end %>
     <% end %>
   </div>
     <div class="container">

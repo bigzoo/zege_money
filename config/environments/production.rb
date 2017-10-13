@@ -18,7 +18,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "Restaurant",
-    password: ENV["SMTP_PASSWORD"]
+    password: 'n-jDLINoVFB6msF25XeCQQ'
    }
 
   # Full error reports are disabled and caching is turned on.
