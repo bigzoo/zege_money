@@ -1,1 +1,5 @@
 <h1>Dashboard</h1>
+<h4>Account Balance: <b><%= current_user.balance%></b></h4>
+<%= link_to 'Make a deposit', deposits_path %>
+<br>
+<%= link_to 'Send Money', transactions_path %>
